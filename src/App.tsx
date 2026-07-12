@@ -1,26 +1,59 @@
-import { useState } from 'react'
-import './App.css'
+import { useState, useEffect } from 'react';
+import Canvas3D from './components/Canvas3D';
+import Toolbar from './components/Toolbar';
+import SafetyProvider from './components/SafetyProvider';
+import MerchStore from './components/MerchStore';
+import MusicVenue from './components/MusicVenue';
+import CameraStarter from './components/CameraStarter';
+import './App.css';
 
-function App() {
-  const [color, setColor] = useState('#4a90e2')
+export default function App() {
+  const [showMerch, setShowMerch] = useState(false);
+  const [showMusic, setShowMusic] = useState(false);
+  const [showCamera, setShowCamera] = useState(true);
+  const [archives, setArchives] = useState(0);
+
+  const handleImageReady = (dataUrl: string) => {
+    console.log("Image ready:", dataUrl);
+    setShowCamera(false);
+  };
+
+  const saveArchive = () => {
+    localStorage.setItem(`serenity_archive_${Date.now()}`, JSON.stringify({ timestamp: new Date().toISOString() }));
+    setArchives(prev => prev + 1);
+    alert("📦 Archive Saved!");
+  };
+
+  useEffect(() => {
+    const count = Object.keys(localStorage).filter(k => k.startsWith('serenity_archive_')).length;
+    setArchives(count);
+  }, []);
 
   return (
-    <div className="app">
-      <h1>🌟 SerenityBrush</h1>
-      <p>A peaceful place to create.</p>
-      
-      <div className="canvas-placeholder">
-        <p>3D Canvas Coming Soon...</p>
-        <p>Start painting your dreams.</p>
-      </div>
+    <SafetyProvider>
+      <div className="app island-mode">
+        <header className="header">
+          <h1>🌴 SerenityBrush</h1>
+          <p>Archives: {archives}</p>
+          <button onClick={saveArchive}>💾 Archive</button>
+          <a href="https://github.com/RodneyLet/PetWars" target="_blank" rel="noopener noreferrer" className="petwars-big-link">
+            🐾 Pet Wars
+          </a>
+          <div>
+            <button onClick={() => setShowMusic(!showMusic)}>🎵 Music</button>
+            <button onClick={() => setShowMerch(!showMerch)}>
+              {showMerch ? 'Studio' : 'Merch'}
+            </button>
+          </div>
+        </header>
 
-      <div className="tools">
-        <button onClick={() => setColor('#ff6b6b')}>Red</button>
-        <button onClick={() => setColor('#4ecdc4')}>Teal</button>
-        <button onClick={() => setColor('#45b7d1')}>Blue</button>
+        {showCamera ? <CameraStarter onImageReady={handleImageReady} /> : (
+          showMerch ? <MerchStore /> : <Canvas3D />
+        )}
+
+        {showMusic && <MusicVenue />}
+        {!showMerch && !showCamera && <Toolbar />}
       </div>
-    </div>
-  )
+    </SafetyProvider>
+  );
 }
-
-export default App

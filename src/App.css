@@ -1,25 +1,6 @@
-.app {
-  text-align: center;
-  padding: 40px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  min-height: 100vh;
-  color: white;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-.canvas-placeholder {
-  margin: 40px auto;
-  padding: 60px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 20px;
-  max-width: 800px;
-}
-
-.tools button {
-  margin: 10px;
-  padding: 12px 24px;
-  font-size: 16px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-}
+.app { min-height: 100vh; background: #0a0a1f; color: #eee; font-family: system-ui; }
+.header { padding: 1rem; text-align: center; background: rgba(0,0,0,0.5); }
+.canvas-container { height: 65vh; margin: 1rem; border-radius: 16px; overflow: hidden; }
+.toolbar { padding: 1rem; background: rgba(255,255,255,0.08); display: flex; gap: 1rem; flex-wrap: wrap; }
+.music-venue, .merch-store { padding: 2rem; text-align: center; }
+.petwars-big-link { animation: pulse 2s infinite; }
