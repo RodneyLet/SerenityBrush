@@ -5,6 +5,7 @@ import SafetyProvider from './components/SafetyProvider';
 import MerchStore from './components/MerchStore';
 import MusicVenue from './components/MusicVenue';
 import CameraStarter from './components/CameraStarter';
+import Toolbar from './components/toolbar';  // Change to .tsx if needed (Vite handles it)
 import './App.css';
 
 export default function App() {
