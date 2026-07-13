@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import Canvas3D from './components/Canvas3D';
 import Toolbar from './components/Toolbar';
-import SafetyProvider from './components/SafetyProvider';import Canvas3D from './components/Canvas3D';
+import SafetyProvider from './components/SafetyProvider';
 import MerchStore from './components/MerchStore';
 import MusicVenue from './components/MusicVenue';
 import CameraStarter from './components/CameraStarter';
-import Toolbar from './components/toolbar';  // Change to .tsx if needed (Vite handles it)
 import './App.css';
 
 export default function App() {
@@ -34,7 +33,7 @@ export default function App() {
     <SafetyProvider>
       <div className="app island-mode">
         <header className="header">
-          <h1>🌴 SerenityBrush</h1>
+          <h1>🌴 SerenityX</h1>
           <p>Archives: {archives}</p>
           <button onClick={saveArchive}>💾 Archive</button>
           <a href="https://github.com/RodneyLet/PetWars" target="_blank" rel="noopener noreferrer" className="petwars-big-link">
