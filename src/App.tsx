@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Canvas3D from './components/Canvas3D';
 import Toolbar from './components/Toolbar';
-import SafetyProvider from './components/SafetyProvider';
+import SafetyProvider from './components/SafetyProvider';import Canvas3D from './components/Canvas3D';
 import MerchStore from './components/MerchStore';
 import MusicVenue from './components/MusicVenue';
 import CameraStarter from './components/CameraStarter';
