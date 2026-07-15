@@ -1,5 +1,4 @@
 {
   "installCommand": "npm ci --legacy-peer-deps --force",
-  "buildCommand": "npm run build",
-  "nodeVersion": "20.x"
+  "buildCommand": "npm run build"
 }
